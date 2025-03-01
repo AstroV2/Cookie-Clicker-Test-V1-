@@ -234,34 +234,4 @@
     </style>
 </head>
 <body>
-    <div id="counter">0</div>
-    <button id="clickBtn">Click Me!</button>
-    <button id="saveBtn">Save Clicks</button>
-    <button id="resetBtn">Reset</button>
 
-    <script>
-        // Load saved count from localStorage when page loads
-        let clickCount = localStorage.getItem('savedClicks') || 0;
-        document.getElementById('counter').textContent = clickCount;
-
-        // Click button functionality
-        document.getElementById('clickBtn').addEventListener('click', () => {
-            clickCount++;
-            document.getElementById('counter').textContent = clickCount;
-        });
-
-        // Save button functionality
-        document.getElementById('saveBtn').addEventListener('click', () => {
-            localStorage.setItem('savedClicks', clickCount);
-            alert('Clicks saved!');
-        });
-
-        // Reset button functionality
-        document.getElementById('resetBtn').addEventListener('click', () => {
-            clickCount = 0;
-            document.getElementById('counter').textContent = clickCount;
-            localStorage.removeItem('savedClicks');
-        });
-    </script>
-</body>
-</html>
