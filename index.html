@@ -191,3 +191,77 @@
 <button class="discord-button" onclick="window.location.href='https://discord.gg/rx9myTgu'">
     Join Our Discord
 </button>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Counter</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #counter {
+            font-size: 48px;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #clickBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #saveBtn {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        #resetBtn {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="counter">0</div>
+    <button id="clickBtn">Click Me!</button>
+    <button id="saveBtn">Save Clicks</button>
+    <button id="resetBtn">Reset</button>
+
+    <script>
+        // Load saved count from localStorage when page loads
+        let clickCount = localStorage.getItem('savedClicks') || 0;
+        document.getElementById('counter').textContent = clickCount;
+
+        // Click button functionality
+        document.getElementById('clickBtn').addEventListener('click', () => {
+            clickCount++;
+            document.getElementById('counter').textContent = clickCount;
+        });
+
+        // Save button functionality
+        document.getElementById('saveBtn').addEventListener('click', () => {
+            localStorage.setItem('savedClicks', clickCount);
+            alert('Clicks saved!');
+        });
+
+        // Reset button functionality
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            clickCount = 0;
+            document.getElementById('counter').textContent = clickCount;
+            localStorage.removeItem('savedClicks');
+        });
+    </script>
+</body>
+</html>
